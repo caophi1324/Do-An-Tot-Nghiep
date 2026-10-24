@@ -1,0 +1,269 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Grid1
+        - /Drone 1 (Red)1
+        - /Drone 2 (Green)1
+        - /Drone 3 (Blue)1
+        - /Drone 4 (Yellow)1
+        - /Drone 5 (Magenta)1
+      Splitter Ratio: 0.5
+    Tree Height: 600
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.03
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: XY
+      Plane Cell Count: 50
+      Reference Frame: <Fixed Frame>
+      Value: true
+
+    # --- DRONE 1: MŨI TÊN ĐỎ (RED) ---
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Color: 255; 35; 35
+      Enabled: true
+      Keep: 1
+      Length: 1.2
+      Name: Drone 1 (Red)
+      Position Tolerance: 0.1
+      Reliability Policy: Best Effort
+      Shaft Length: 0.9
+      Shaft Radius: 0.08
+      Head Length: 0.3
+      Head Radius: 0.16
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone1/odom_swarm
+      Value: true
+
+    # --- DRONE 2: MŨI TÊN XANH LÁ (GREEN) ---
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Color: 35; 255; 35
+      Enabled: true
+      Keep: 1
+      Length: 1.2
+      Name: Drone 2 (Green)
+      Position Tolerance: 0.1
+      Reliability Policy: Best Effort
+      Shaft Length: 0.9
+      Shaft Radius: 0.08
+      Head Length: 0.3
+      Head Radius: 0.16
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone2/odom_swarm
+      Value: true
+
+    # --- DRONE 3: MŨI TÊN XANH DƯƠNG (BLUE) ---
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Color: 45; 130; 255
+      Enabled: true
+      Keep: 1
+      Length: 1.2
+      Name: Drone 3 (Blue)
+      Position Tolerance: 0.1
+      Reliability Policy: Best Effort
+      Shaft Length: 0.9
+      Shaft Radius: 0.08
+      Head Length: 0.3
+      Head Radius: 0.16
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone3/odom_swarm
+      Value: true
+
+    # --- DRONE 4: MŨI TÊN VÀNG (YELLOW) ---
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Color: 255; 235; 35
+      Enabled: true
+      Keep: 1
+      Length: 1.2
+      Name: Drone 4 (Yellow)
+      Position Tolerance: 0.1
+      Reliability Policy: Best Effort
+      Shaft Length: 0.9
+      Shaft Radius: 0.08
+      Head Length: 0.3
+      Head Radius: 0.16
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone4/odom_swarm
+      Value: true
+
+    # --- DRONE 5: MŨI TÊN TÍM (MAGENTA) ---
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Color: 220; 40; 220
+      Enabled: true
+      Keep: 1
+      Length: 1.2
+      Name: Drone 5 (Magenta)
+      Position Tolerance: 0.1
+      Reliability Policy: Best Effort
+      Shaft Length: 0.9
+      Shaft Radius: 0.08
+      Head Length: 0.3
+      Head Radius: 0.16
+      Shape: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone5/odom_swarm
+      Value: true
+
+    # --- DRONE 1: MÔ HÌNH 3D ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone 1 Model (3D)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone1/drone_model
+      Value: true
+
+    # --- DRONE 2: MÔ HÌNH 3D ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone 2 Model (3D)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone2/drone_model
+      Value: true
+
+    # --- DRONE 3: MÔ HÌNH 3D ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone 3 Model (3D)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone3/drone_model
+      Value: true
+
+    # --- DRONE 4: MÔ HÌNH 3D ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone 4 Model (3D)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone4/drone_model
+      Value: true
+
+    # --- DRONE 5: MÔ HÌNH 3D ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone 5 Model (3D)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /drone5/drone_model
+      Value: true
+
+    # --- TOPO BẦY ĐÀN & VÙNG BẢO VỆ APF ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Swarm Topology & APF
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /swarm/topology_links
+      Value: true
+
+    # --- QUẢ CẦU AN TOÀN 3D (5-INCH ORCA SPHERE 0.4m) ---
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Safety Spheres (ORCA 0.4m)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /swarm/safety_spheres
+      Value: true
+
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 15
+      Focal Point:
+        X: 2.5
+        Y: 2.5
+        Z: 2.5
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.01
+      Pitch: 0.5
+      Target Frame: <Fixed Frame>
+      Value: Orbit (rviz)
+      Yaw: 0.785
+    Saved: ~

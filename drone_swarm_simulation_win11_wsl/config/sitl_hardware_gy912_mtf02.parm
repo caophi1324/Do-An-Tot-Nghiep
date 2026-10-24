@@ -1,0 +1,118 @@
+# =============================================================================
+# ARDUPILOT SITL HARDWARE SIMULATION PARAMS: GY-912 (10DOF) + MTF-02 (INDOOR)
+# =============================================================================
+
+# --- 1. IMU GY-912 (ICM-20948 & I2C Bus Simulation) ---
+SCHED_LOOP_RATE 100      # 100Hz loop rate khớp với cấu hình I2C trên ESP32-S3
+SIM_ACC1_RND    0.02     # Mô phỏng độ ồn gia tốc thực tế
+SIM_GYR1_RND    0.02     # Mô phỏng độ ồn con quay hồi chuyển
+INS_GYR_CAL     0        # Bỏ qua bước chờ cân bằng Gyro khi khởi động SITL
+
+# --- 2. TOF RANGEFINDER (MicoAir MTF-02 Bản Thường trong SITL) ---
+RNGFND1_TYPE    100      # Driver SITL Rangefinder (AP_RangeFinder_SITL, Enum Type::SIM = 100)
+RNGFND1_MIN_CM  2        # Ngưỡng sàn đo tối thiểu 2 cm (0.02m)
+RNGFND1_MAX_CM  400      # Ngưỡng trần đo tối đa 400 cm (4.0m chuẩn ToF hội trường cao)
+RNGFND1_ORIENT  25       # Hướng cảm biến chúc thẳng xuống mặt đất (Downward)
+RNGFND1_GNDCLEAR 5       # Khoảng cách từ cảm biến tới mặt đất khi đỗ
+SIM_SONAR_SCALE 1        # Thang đo khoảng cách SITL
+SIM_SONAR_RND   0.02     # Sai số đo thực tế ±2cm
+
+# --- 2.1 HÀNG RÀO ĐỊA LÝ AN TOÀN HỘI TRƯỜNG (20m x 30m) ---
+FENCE_ENABLE    1        # Kích hoạt rào chắn địa lý ảo bảo vệ không gian hội trường
+FENCE_TYPE      3        # 1 = Alt, 2 = Circle -> 3 = Cả hai
+FENCE_ALT_MAX   3.5      # Trần bay an toàn 3.5m cho hội trường trần cao
+FENCE_RADIUS    12.0     # Bán kính bay tối đa 12.0m (phù hợp hội trường 20x30m)
+FENCE_ACTION    2        # 2 = ALWAYS LAND (Hạ cánh khẩn cấp tại chỗ khi chạm rào, KHÔNG RTL)
+FENCE_MARGIN    0.5      # Vùng đệm cảnh báo phanh 0.5m
+
+
+# --- 3. OPTICAL FLOW (MicoAir MTF-02 Bản Thường trong SITL) ---
+SIM_FLOW_ENABLE 1        # Kích hoạt mô phỏng mắt đọc quang học trong SITL physics
+SIM_FLOW_RND    0.00     # Triệt tiêu nhiễu giả lập quang học ngẫu nhiên trong SITL
+SIM_FLOW_DELAY  0.0      # Độ trễ cảm biến 0ms
+FLOW_TYPE       10       # Driver SITL Optical Flow (AP_OpticalFlow_SITL, Enum Type::SITL = 10; trên board thật dùng 5 = MAVLink)
+FLOW_FXSCALER   0        # Hệ số hiệu chỉnh phần nghìn (0 = chuẩn)
+FLOW_FYSCALER   0        # Hệ số hiệu chỉnh phần nghìn (0 = chuẩn)
+EK3_FLOW_M_NSE  0.10     # Độ tin cậy cảm biến quang học chất lượng cao MTF-02 (0.10 rad/s)
+
+# --- 4. BỘ LỌC EKF3 VÀ CẤU HÌNH CẤT CÁNH SITL ---
+SIM_GPS1_ENABLE 1        # Bật GPS mô phỏng để cung cấp toạ độ Home ban đầu cho SITL EKF3
+ARMING_CHECK    0        # Tắt pre-arm check để cất cánh SITL ngay lập tức
+DISARM_DELAY    0        # Không tự động disarm khi ở mặt đất
+AHRS_EKF_TYPE   3        # Sử dụng bộ lọc EKF3
+EK3_ENABLE      1
+EK3_SRC1_POSXY  3        # 3 = GPS (cung cấp toạ độ tham chiếu khởi tạo vị trí ban đầu cho SITL EKF3)
+EK3_SRC1_VELXY  5        # 5 = OpticalFlow MTF-02
+EK3_SRC1_POSZ   2        # 2 = Rangefinder ToF MTF-02
+EK3_SRC1_VELZ   0        # Vận tốc thẳng đứng
+EK3_SRC1_YAW    1        # Giữ hướng Yaw từ la bàn từ trường (Compass ICM-20948)
+EK3_SRC_OPTIONS 1        # Fuse all velocities
+
+# --- 5. STREAM RATE CHO MAVROS (SERIAL1) & PYTHON (SERIAL2) ---
+SR1_POSITION    10       # Stream toạ độ 3D 10Hz cho RViz2 qua MAVROS
+SR1_EXTRA1      10       # Stream thái độ IMU/Attitude 10Hz
+SR1_RAW_SENS    5        # Stream cảm biến 5Hz
+SR2_POSITION    10       # Stream toạ độ cho script Python điều khiển
+SR2_EXTRA1      10       # Stream thái độ cho Python
+
+# --- 6. MÔ PHỎNG VẬT LÝ TRỌNG LƯỢNG & ĐỘNG LỰC HỌC (SUB-250G, MOTOR XING2 1404) ---
+SIM_MASS        0.250    # Tổng khối lượng thực tế 250g (Sub-250g chuẩn an toàn)
+MOT_THST_HOVER  0.28     # Mức ga lơ lửng ban đầu ~28% (tỷ lệ đẩy khỏe của 1404)
+MOT_HOVER_LEARN 2        # Tự động học và tinh chỉnh mức ga lơ lửng chính xác khi bay
+MOT_SPIN_ARM    0.07     # Tốc độ quay tối thiểu khi ARM động cơ
+MOT_SPIN_MIN    0.10     # Tốc độ quay tối thiểu khi bay
+
+# --- 7. MÔ PHỎNG PIN 3S 1400MAH 30C & BẢO VỆ NGUỒN THEO ĐIỆN ÁP VẬT LÝ (VOLTAGE-BASED FAILSAFE) ---
+SIM_BATT_VOLTAGE 12.6    # Điện áp đầy pin 3S (4.2V x 3 = 12.6V)
+SIM_BATT_CAP_AH 1.4      # Dung lượng SITL: 1.4Ah (Thời gian bay thực tế ~12.2 - 14.5 phút với dòng hover 5.8A)
+BATT_MONITOR    4        # Bật cảm biến đo áp và dòng pin (Analog Voltage & Current)
+BATT_CAPACITY   1400     # Dung lượng danh định pin 3S (1400mAh)
+BATT_LOW_VOLT   10.5     # Cảnh báo pin yếu Tầng 1 (3.5V / cell) -> Kích hoạt Failsafe LAND
+BATT_LOW_MAH    0        # Tắt kiểm tra mAh tích lũy (tránh lỗi kẹt cờ tích phân Coulomb trong RAM SITL)
+BATT_CRT_VOLT   9.9      # Ngưỡng pin nguy kịch Tầng 2 (3.3V / cell) -> LAND khẩn cấp
+BATT_CRT_MAH    0        # Tắt kiểm tra mAh tích lũy
+BATT_FS_LOW_ACT 1        # Hành động khi pin yếu: 1 = LAND (hạ cánh thẳng đứng tại chỗ bằng MTF-02 ToF)
+BATT_FS_CRT_ACT 1        # Hành động khi pin nguy kịch: 1 = LAND (ép hạ cánh khẩn cấp trước khi sập nguồn)
+BATT_LOW_TIMER  3        # Sau 3 giây liên tục dưới ngưỡng áp thì kích hoạt Failsafe (lọc sụt áp tức thời)
+BATT_ARM_VOLT   11.1     # Khóa an toàn cất cánh: Cấm ARM động cơ nếu pin < 11.1V (3.7V/cell)
+
+# --- 8. PID TUNING & BỘ LỌC CHO MICRO DRONE 240G (TRIỆT TIÊU HOÀN TOÀN TRÔI LẮC & DAO ĐỘNG) ---
+ATC_RAT_RLL_P    0.065   # Rate P kiểm soát góc xoay nhanh và chắc cho frame 240g
+ATC_RAT_RLL_I    0.065
+ATC_RAT_RLL_D    0.0018  # Rate D dập tắt quán tính quay
+ATC_RAT_PIT_P    0.065
+ATC_RAT_PIT_I    0.065
+ATC_RAT_PIT_D    0.0018
+ATC_RAT_YAW_P    0.35
+ATC_RAT_YAW_I    0.035
+ATC_RAT_YAW_D    0.005
+ATC_ANG_RLL_P    6.0     # Hạ Angle P từ 10.0 về 6.0 (loại bỏ phase lag gây trôi lắc qua lại)
+ATC_ANG_PIT_P    6.0
+ATC_ANG_YAW_P    6.0
+INS_GYRO_FILTER  80.0    # Lọc thông thấp Gyro 80Hz cho Micro Drone
+ATC_RAT_RLL_FLTD 40.0    # Lọc đạo hàm D-term 40Hz
+ATC_RAT_PIT_FLTD 40.0
+
+# --- 9. VÒNG ĐIỀU KHIỂN VỊ TRÍ & VẬN TỐC (NHANH NHẠY, DỨT KHOÁT, BÁM QUỸ ĐẠO MƯỢT) ---
+PSC_POSXY_P      1.00    # Đặt P = 1.00 chuẩn (phản hồi vị trí nhanh nhạy, bám sát quỹ đạo điều khiển)
+PSC_VELXY_P      1.20    # Giữ độ cứng vững bám vận tốc
+PSC_VELXY_I      0.08    # Hạ tích phân I từ 0.25 về 0.08 (triệt tiêu 100% hiện tượng đu đưa con lắc 3.5s)
+PSC_VELXY_D      0.00    # Đưa vi phân D về 0.00 (triệt tiêu hoàn toàn khuếch đại nhiễu cảm biến quang học)
+PSC_NE_POS_P     1.00    # Tham số chuẩn ArduPilot 4.5+
+PSC_NE_VEL_P     1.20
+PSC_NE_VEL_I     0.08
+PSC_NE_VEL_D     0.00
+PSC_NE_VEL_FLTE  8.0     # Bộ lọc sai số vận tốc 8Hz
+PSC_NE_VEL_FLTD  8.0     # Bộ lọc vi phân vận tốc 8Hz
+PSC_ACCZ_P       0.25    # Giảm phản xạ gia tốc Z
+PSC_ACCZ_I       0.50
+WPNAV_SPEED      250.0   # Tốc độ lướt mục tiêu: 2.5 m/s (chuyển đội hình nhanh, dứt khoát)
+WPNAV_ACCEL      220.0   # Gia tốc mượt mà: 2.2 m/s² (tăng tốc dứt khoát)
+WPNAV_JERK       3.0     # Giới hạn độ giật jerk chống rung lắc
+
+# --- 10. CẤU HÌNH AUTOTUNE (TỰ ĐỘNG DÒ TÌM PID TỐI ƯU CỦA ARDUPILOT) ---
+AUTOTUNE_AXES    3       # 3 = Dò tự động 2 trục Roll và Pitch (nhanh gọn, tiết kiệm pin 3S)
+AUTOTUNE_AGGR    0.075   # 0.075 = Độ nhạy trung bình (êm ái, phù hợp cho micro drone 240g trong nhà)
+AUTOTUNE_MIN_D   0.0010  # Ngưỡng D-term tối thiểu chống rung cao tần
+ATC_INPUT_TC     0.20    # Làm mượt phản hồi lệnh điều khiển sau khi AutoTune
+

@@ -1,0 +1,11 @@
+.venv
+.venv*
+.venv_wsl
+data
+.env
+tests/VideoTest
+*.pt
+__pycache__
+*.pyc
+.pytest_cache
+.git

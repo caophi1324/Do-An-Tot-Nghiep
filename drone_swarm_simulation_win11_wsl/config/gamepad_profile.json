@@ -1,0 +1,64 @@
+{
+    "device_name": "Xbox 360 Controller",
+    "num_axes": 6,
+    "num_buttons": 11,
+    "num_hats": 1,
+    "axes": {
+        "axis_0": {
+            "label": "Left Stick X (Yaw)",
+            "center": 0.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        },
+        "axis_1": {
+            "label": "Left Stick Y (Throttle/Alt)",
+            "center": -0.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        },
+        "axis_2": {
+            "label": "Right Stick X (Roll)",
+            "center": 0.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        },
+        "axis_3": {
+            "label": "Right Stick Y (Pitch)",
+            "center": -0.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        },
+        "axis_4": {
+            "label": "Left Trigger (LT)",
+            "center": -1.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        },
+        "axis_5": {
+            "label": "Right Trigger (RT)",
+            "center": -1.0,
+            "min": -1.0,
+            "max": 1.0,
+            "range_span": 2.0,
+            "deadzone": 0.1
+        }
+    },
+    "buttons": {
+        "takeoff": 0,
+        "land": 1,
+        "arm_disarm": 2,
+        "emergency_brake": 3,
+        "prev_drone": 4,
+        "next_drone": 5
+    }
+}

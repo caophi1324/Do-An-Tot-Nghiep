@@ -1,0 +1,26 @@
+newmtl 5d500388-5ad8-4a97-84d7-c5dd5bd87d67
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/fpv_kamikaze_drone_1_c.jpg
+map_Ks textures/fpv_kamikaze_drone_1_n_s.jpg
+map_normal textures/fpv_kamikaze_drone_1_n_n.jpg
+map_ao textures/fpv_kamikaze_drone_1_n_ao.jpg
+
+newmtl 94d7499c-18e5-4526-97d9-ea31b09f77cf
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Ns 30
+Ke 0.000 0.000 0.000
+map_Kd textures/fpv_kamikaze_drone_c.jpg
+map_Ks textures/fpv_kamikaze_drone_n_s.jpg
+map_normal textures/fpv_kamikaze_drone_n_n.jpg
+map_ao textures/fpv_kamikaze_drone_n_ao.jpg
+
+newmtl c710e25a-6bbb-4a14-85c4-8b4dd35d15b0
+Kd 1.000 0.000 1.000
+Ks 0.067 0.067 0.067
+Ns 30
+Ke 0.000 0.000 0.000
+

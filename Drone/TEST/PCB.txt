@@ -1,0 +1,336 @@
+Info: Processing symbol 'C1:Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder'.
+Info: Processing symbol 'J1:USB-C:USB_C_Receptacle_HRO_TYPE-C-31-M-12'.
+Info: Processing symbol 'R1:Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder'.
+Info: Processing symbol 'C2:Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder'.
+Info: Processing symbol 'FB1:Inductor_SMD:L_0805_2012Metric_Pad1.05x1.20mm_HandSolder'.
+Info: Processing symbol 'C3:Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder'.
+Info: Processing symbol 'R3:Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder'.
+Info: Processing symbol 'R2:Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder'.
+Info: Processing symbol 'SW2:Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK'.
+Info: Processing symbol 'C4:Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder'.
+Info: Processing symbol 'SW1:Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK'.
+Info: Processing symbol 'R4:Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder'.
+Info: Processing symbol 'TP1:TestPoint:TestPoint_Pad_D2.0mm'.
+Info: Processing symbol 'TP2:TestPoint:TestPoint_Pad_D2.0mm'.
+Info: Processing symbol 'TP3:TestPoint:TestPoint_Pad_D2.0mm'.
+Info: Processing symbol 'TP4:TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm'.
+Info: Processing symbol 'TP5:TestPoint:TestPoint_Pad_D2.0mm'.
+Info: Processing symbol 'U1:RF_Module:ESP32-S3-WROOM-1'.
+Updated C1 sheetfile to 'TEST.kicad_sch'.
+Updated C1 footprint filters to 'C_*'.
+Add net /+3V3p.
+Connected C1 pin 1 to /+3V3p.
+Add net GND.
+Connected C1 pin 2 to GND.
+Updated C1 unit metadata.
+Added C2 (footprint 'Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder').
+Changed REF** reference designator to C2.
+Changed C2 value from C_0805_2012Metric_Pad1.18x1.45mm_HandSolder to 22uF.
+Updated C2 symbol association from  to /ab765a64-d8fb-46fb-9db4-bb9776b27a7f.
+Updated C2 fields.
+Updated C2 sheetname to '/'.
+Updated C2 sheetfile to 'TEST.kicad_sch'.
+Updated C2 footprint filters to 'C_*'.
+Connected C2 pin 2 to GND.
+Connected C2 pin 1 to /+3V3p.
+Updated C2 unit metadata.
+Added C3 (footprint 'Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder').
+Changed REF** reference designator to C3.
+Changed C3 value from C_0805_2012Metric_Pad1.18x1.45mm_HandSolder to 100nF.
+Updated C3 symbol association from  to /abc6250e-70ba-43b2-b4e9-52bc6fc3bca7.
+Updated C3 fields.
+Updated C3 sheetname to '/'.
+Updated C3 sheetfile to 'TEST.kicad_sch'.
+Updated C3 footprint filters to 'C_*'.
+Add net /GPIO0.
+Connected C3 pin 1 to /GPIO0.
+Connected C3 pin 2 to GND.
+Updated C3 unit metadata.
+Added C4 (footprint 'Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder').
+Changed REF** reference designator to C4.
+Changed C4 value from C_0805_2012Metric_Pad1.18x1.45mm_HandSolder to 22uF.
+Updated C4 symbol association from  to /e096a519-6e33-4372-b0eb-fa90bbaab824.
+Updated C4 fields.
+Updated C4 sheetname to '/'.
+Updated C4 sheetfile to 'TEST.kicad_sch'.
+Updated C4 footprint filters to 'C_*'.
+Add net /EN.
+Connected C4 pin 1 to /EN.
+Connected C4 pin 2 to GND.
+Updated C4 unit metadata.
+Added FB1 (footprint 'Inductor_SMD:L_0805_2012Metric_Pad1.05x1.20mm_HandSolder').
+Changed REF** reference designator to FB1.
+Changed FB1 value from L_0805_2012Metric_Pad1.05x1.20mm_HandSolder to FerriteBead.
+Updated FB1 symbol association from  to /b66c7c59-c2a5-4b69-b895-6e9331032333.
+Updated FB1 fields.
+Updated FB1 sheetname to '/'.
+Updated FB1 sheetfile to 'TEST.kicad_sch'.
+Updated FB1 footprint filters to 'Inductor_* L_* *Ferrite*'.
+Add net /+3V3.
+Connected FB1 pin 1 to /+3V3.
+Connected FB1 pin 2 to /+3V3p.
+Updated FB1 unit metadata.
+Added J1 (footprint 'USB-C:USB_C_Receptacle_HRO_TYPE-C-31-M-12').
+Changed REF** reference designator to J1.
+Changed J1 value from USB_C_Receptacle_HRO_TYPE-C-31-M-12 to USB_C_Receptacle_USB2.0_16P.
+Updated J1 symbol association from  to /3b4e91c6-c88e-4c50-8ecd-1ead4f18d323.
+Updated J1 fields.
+Updated J1 sheetname to '/'.
+Updated J1 sheetfile to 'TEST.kicad_sch'.
+Updated J1 footprint filters to 'USB*C*Receptacle*'.
+Connected J1 pin S1 to GND.
+Add net unconnected-(J1-SBU2-PadB8).
+Connected J1 pin B8 to unconnected-(J1-SBU2-PadB8).
+Add net /USB_D+.
+Connected J1 pin B6 to /USB_D+.
+Add net /+5Vusb.
+Connected J1 pin B4 to /+5Vusb.
+Connected J1 pin A6 to /USB_D+.
+Connected J1 pin B9 to /+5Vusb.
+Connected J1 pin B12 to GND.
+Connected J1 pin A12 to GND.
+Add net unconnected-(J1-SBU1-PadA8).
+Connected J1 pin A8 to unconnected-(J1-SBU1-PadA8).
+Connected J1 pin S1 to GND.
+Add net Net-(J1-CC1).
+Connected J1 pin A5 to Net-(J1-CC1).
+Connected J1 pin A4 to /+5Vusb.
+Add net /USB_D-.
+Connected J1 pin A7 to /USB_D-.
+Connected J1 pin A1 to GND.
+Connected J1 pin B7 to /USB_D-.
+Connected J1 pin A9 to /+5Vusb.
+Connected J1 pin S1 to GND.
+Connected J1 pin B1 to GND.
+Add net Net-(J1-CC2).
+Connected J1 pin B5 to Net-(J1-CC2).
+Connected J1 pin S1 to GND.
+Updated J1 unit metadata.
+Added R1 (footprint 'Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder').
+Changed REF** reference designator to R1.
+Changed R1 value from R_0805_2012Metric_Pad1.20x1.40mm_HandSolder to 5k1.
+Updated R1 symbol association from  to /beac5aeb-57b5-46b3-acfc-4370c1cbc349.
+Updated R1 fields.
+Updated R1 sheetname to '/'.
+Updated R1 sheetfile to 'TEST.kicad_sch'.
+Updated R1 footprint filters to 'R_*'.
+Connected R1 pin 2 to GND.
+Connected R1 pin 1 to Net-(J1-CC2).
+Updated R1 unit metadata.
+Added R2 (footprint 'Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder').
+Changed REF** reference designator to R2.
+Changed R2 value from R_0805_2012Metric_Pad1.20x1.40mm_HandSolder to 5k1.
+Updated R2 symbol association from  to /e2c0ade0-789d-443a-aad8-ea03f08488c9.
+Updated R2 fields.
+Updated R2 sheetname to '/'.
+Updated R2 sheetfile to 'TEST.kicad_sch'.
+Updated R2 footprint filters to 'R_*'.
+Connected R2 pin 1 to Net-(J1-CC1).
+Connected R2 pin 2 to GND.
+Updated R2 unit metadata.
+Added R3 (footprint 'Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder').
+Changed REF** reference designator to R3.
+Changed R3 value from R_0805_2012Metric_Pad1.20x1.40mm_HandSolder to 10K.
+Updated R3 symbol association from  to /2979a87a-3e6b-47ef-863f-7523b1e9ceb3.
+Updated R3 fields.
+Updated R3 sheetname to '/'.
+Updated R3 sheetfile to 'TEST.kicad_sch'.
+Updated R3 footprint filters to 'R_*'.
+Connected R3 pin 2 to /GPIO0.
+Connected R3 pin 1 to /+3V3.
+Updated R3 unit metadata.
+Added R4 (footprint 'Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder').
+Changed REF** reference designator to R4.
+Changed R4 value from R_0805_2012Metric_Pad1.20x1.40mm_HandSolder to 10K.
+Updated R4 symbol association from  to /073be589-4509-42a1-9812-517a3ba5fcd0.
+Updated R4 fields.
+Updated R4 sheetname to '/'.
+Updated R4 sheetfile to 'TEST.kicad_sch'.
+Updated R4 footprint filters to 'R_*'.
+Connected R4 pin 2 to /EN.
+Connected R4 pin 1 to /+3V3p.
+Updated R4 unit metadata.
+Added SW1 (footprint 'Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK').
+Changed REF** reference designator to SW1.
+Changed SW1 value from SW_Push_SPST_NO_Alps_SKRK to SW_Push.
+Updated SW1 symbol association from  to /04efad77-fee9-4f79-b467-c4c806152256.
+Updated SW1 fields.
+Updated SW1 sheetname to '/'.
+Updated SW1 sheetfile to 'TEST.kicad_sch'.
+Connected SW1 pin 2 to /GPIO0.
+Connected SW1 pin 1 to GND.
+Updated SW1 unit metadata.
+Added SW2 (footprint 'Button_Switch_SMD:SW_Push_SPST_NO_Alps_SKRK').
+Changed REF** reference designator to SW2.
+Changed SW2 value from SW_Push_SPST_NO_Alps_SKRK to SW_Push.
+Updated SW2 symbol association from  to /d3052bc7-3541-4065-b3e8-5a3d3224ef6d.
+Updated SW2 fields.
+Updated SW2 sheetname to '/'.
+Updated SW2 sheetfile to 'TEST.kicad_sch'.
+Connected SW2 pin 2 to /EN.
+Connected SW2 pin 1 to GND.
+Updated SW2 unit metadata.
+Added C1 (footprint 'Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder').
+Added TP1 (footprint 'TestPoint:TestPoint_Pad_D2.0mm').
+Changed REF** reference designator to TP1.
+Changed TP1 value from TestPoint_Pad_D2.0mm to GPIO3.
+Updated TP1 symbol association from  to /aff8557a-a4c9-4bc9-ad92-95af32b9d93a.
+Updated TP1 fields.
+Updated TP1 sheetname to '/'.
+Updated TP1 sheetfile to 'TEST.kicad_sch'.
+Updated TP1 footprint filters to 'Pin* Test*'.
+Removed TP1 'exclude from BOM' fabrication attribute.
+Removed TP1 'exclude from position files' fabrication attribute.
+Add net /GPIO3.
+Connected TP1 pin 1 to /GPIO3.
+Updated TP1 unit metadata.
+Changed REF** reference designator to C1.
+Added TP2 (footprint 'TestPoint:TestPoint_Pad_D2.0mm').
+Changed REF** reference designator to TP2.
+Changed TP2 value from TestPoint_Pad_D2.0mm to GPIO45.
+Updated TP2 symbol association from  to /e582a182-d034-49e6-9e2d-bbb85dced13d.
+Updated TP2 fields.
+Updated TP2 sheetname to '/'.
+Updated TP2 sheetfile to 'TEST.kicad_sch'.
+Updated TP2 footprint filters to 'Pin* Test*'.
+Removed TP2 'exclude from BOM' fabrication attribute.
+Removed TP2 'exclude from position files' fabrication attribute.
+Add net /GPIO45.
+Connected TP2 pin 1 to /GPIO45.
+Updated TP2 unit metadata.
+Changed C1 value from C_0805_2012Metric_Pad1.18x1.45mm_HandSolder to 100nF.
+Added TP3 (footprint 'TestPoint:TestPoint_Pad_D2.0mm').
+Changed REF** reference designator to TP3.
+Changed TP3 value from TestPoint_Pad_D2.0mm to GPIO46.
+Updated TP3 symbol association from  to /b6271e66-33d9-42b6-ab5a-a1fcfef6eb0a.
+Updated TP3 fields.
+Updated TP3 sheetname to '/'.
+Updated TP3 sheetfile to 'TEST.kicad_sch'.
+Updated TP3 footprint filters to 'Pin* Test*'.
+Removed TP3 'exclude from BOM' fabrication attribute.
+Removed TP3 'exclude from position files' fabrication attribute.
+Add net /GPIO46.
+Connected TP3 pin 1 to /GPIO46.
+Updated TP3 unit metadata.
+Updated C1 symbol association from  to /6858af03-347d-4977-aaa3-1e63e654cbcd.
+Added TP4 (footprint 'TestPoint:TestPoint_THTPad_D2.0mm_Drill1.0mm').
+Changed REF** reference designator to TP4.
+Changed TP4 value from TestPoint_THTPad_D2.0mm_Drill1.0mm to GPIO1.
+Updated TP4 symbol association from  to /cb40c7e7-34dd-42bd-a23a-2bfa1083f460.
+Updated TP4 fields.
+Updated TP4 sheetname to '/'.
+Updated TP4 sheetfile to 'TEST.kicad_sch'.
+Updated TP4 footprint filters to 'Pin* Test*'.
+Removed TP4 'exclude from BOM' fabrication attribute.
+Removed TP4 'exclude from position files' fabrication attribute.
+Add net /GPIO1.
+Connected TP4 pin 1 to /GPIO1.
+Updated TP4 unit metadata.
+Updated C1 fields.
+Added TP5 (footprint 'TestPoint:TestPoint_Pad_D2.0mm').
+Changed REF** reference designator to TP5.
+Changed TP5 value from TestPoint_Pad_D2.0mm to GPIO5.
+Updated TP5 symbol association from  to /37c86ef4-f056-4835-88ac-b53f1223d311.
+Updated TP5 fields.
+Updated TP5 sheetname to '/'.
+Updated TP5 sheetfile to 'TEST.kicad_sch'.
+Updated TP5 footprint filters to 'Pin* Test*'.
+Removed TP5 'exclude from BOM' fabrication attribute.
+Removed TP5 'exclude from position files' fabrication attribute.
+Add net /GPIO5.
+Connected TP5 pin 1 to /GPIO5.
+Updated TP5 unit metadata.
+Updated C1 sheetname to '/'.
+Added U1 (footprint 'RF_Module:ESP32-S3-WROOM-1').
+Changed REF** reference designator to U1.
+Changed U1 value from ESP32-S3-WROOM-1 to ESP32-S3-WROOM-1-N8.
+Updated U1 symbol association from  to /7ec5e5c5-555f-4e03-b51a-d6f565ed1bfd.
+Updated U1 fields.
+Updated U1 sheetname to '/'.
+Updated U1 sheetfile to 'TEST.kicad_sch'.
+Updated U1 footprint filters to 'ESP32?S3?WROOM?1*'.
+Connected U1 pin 41 to GND.
+Add net /GPIO47.
+Connected U1 pin 24 to /GPIO47.
+Connected U1 pin 41 to GND.
+Add net /GPIO6.
+Connected U1 pin 6 to /GPIO6.
+Add net /GPIO36.
+Connected U1 pin 29 to /GPIO36.
+Add net /GPIO40.
+Connected U1 pin 33 to /GPIO40.
+Add net /GPIO16.
+Connected U1 pin 9 to /GPIO16.
+Connected U1 pin 41 to GND.
+Add net /GPIO15.
+Connected U1 pin 8 to /GPIO15.
+Connected U1 pin 14 to /USB_D+.
+Add net /GPIO17.
+Connected U1 pin 10 to /GPIO17.
+Add net /GPIO35.
+Connected U1 pin 28 to /GPIO35.
+Connected U1 pin 41 to GND.
+Connected U1 pin 41 to GND.
+Add net /GPIO7.
+Connected U1 pin 7 to /GPIO7.
+Connected U1 pin 1 to GND.
+Add net /GPIO48.
+Connected U1 pin 25 to /GPIO48.
+Connected U1 pin 41 to GND.
+Add net /GPIO21.
+Connected U1 pin 23 to /GPIO21.
+Connected U1 pin 41 to GND.
+Add net /GPIO8.
+Connected U1 pin 12 to /GPIO8.
+Connected U1 pin 41 to GND.
+Connected U1 pin 3 to /EN.
+Connected U1 pin 26 to /GPIO45.
+Add net /GPIO4.
+Connected U1 pin 4 to /GPIO4.
+Add net /GPIO44.
+Connected U1 pin 36 to /GPIO44.
+Connected U1 pin 41 to GND.
+Connected U1 pin 15 to /GPIO3.
+Add net /GPIO38.
+Connected U1 pin 31 to /GPIO38.
+Add net /GPIO41.
+Connected U1 pin 34 to /GPIO41.
+Add net /GPIO14.
+Connected U1 pin 22 to /GPIO14.
+Add net /GPIO39.
+Connected U1 pin 32 to /GPIO39.
+Add net /GPIO2.
+Connected U1 pin 38 to /GPIO2.
+Add net /GPIO10.
+Connected U1 pin 18 to /GPIO10.
+Connected U1 pin 41 to GND.
+Add net /GPIO42.
+Connected U1 pin 35 to /GPIO42.
+Add net /GPIO18.
+Connected U1 pin 11 to /GPIO18.
+Connected U1 pin 41 to GND.
+Connected U1 pin 27 to /GPIO0.
+Connected U1 pin 41 to GND.
+Connected U1 pin 2 to /+3V3p.
+Add net /GPIO43.
+Connected U1 pin 37 to /GPIO43.
+Connected U1 pin 5 to /GPIO5.
+Add net /GPIO37.
+Connected U1 pin 30 to /GPIO37.
+Connected U1 pin 13 to /USB_D-.
+Add net /GPIO9.
+Connected U1 pin 17 to /GPIO9.
+Add net /GPIO12.
+Connected U1 pin 20 to /GPIO12.
+Add net /GPIO13.
+Connected U1 pin 21 to /GPIO13.
+Connected U1 pin 39 to /GPIO1.
+Connected U1 pin 16 to /GPIO46.
+Connected U1 pin 41 to GND.
+Connected U1 pin 40 to GND.
+Add net /GPIO11.
+Connected U1 pin 19 to /GPIO11.
+Updated U1 unit metadata.
+
+
+Info: Total warnings: 0, errors: 0.

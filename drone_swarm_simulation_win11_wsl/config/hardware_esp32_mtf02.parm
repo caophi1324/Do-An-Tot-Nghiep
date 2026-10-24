@@ -1,0 +1,114 @@
+# =============================================================================
+# ARDUPILOT HARDWARE PARAMETERS: ESP32-S3 + GY-912 + MICOAIR MTF-02 (REAL FLIGHT)
+# Cấu hình chuẩn nạp lên phần cứng thật: Optical Flow MAVLink, ToF MAVLink, Failsafe LAND
+# LƯU Ý KỸ THUẬT: Target ESP32-S3 trên ArduPilot là HAL thực nghiệm (Experimental).
+# Bắt buộc thực hiện Bench-Test từng tầng failsafe trước khi bay có tải.
+# =============================================================================
+
+# --- 1. IMU GY-912 (ICM-20948 TRÊN BUS I2C ESP32-S3) ---
+SCHED_LOOP_RATE  100     # 100Hz loop rate (phù hợp năng lực tính toán ESP32-S3 & micro drone)
+INS_GYR_CAL      1       # BẮT BUỘC: Hiệu chuẩn Gyro khi cắm nguồn trên board thật
+
+# --- 2. GIAO TIẾP UART CHO CẢM BIẾN MICOAIR MTF-02 (MAVLINK) ---
+# MTF-02 kết nối qua cổng UART (mặc định SERIAL4 hoặc UART tương ứng trên board ESP32-S3)
+SERIAL4_PROTOCOL 2       # 2 = MAVLink2 (giao thức dữ liệu MTF-02)
+SERIAL4_BAUD     115     # 115200 bps
+SERIAL4_OPTIONS  0
+FLOW_ORIENT_YAW  0       # 0 = hướng cảm biến trùng hướng mũi drone
+
+# --- 3. TOF RANGEFINDER (MicoAir MTF-02 qua MAVLink UART) ---
+# MTF-02 có MCU riêng xuất trực tiếp MAVLink (khoảng cách & luồng quang học)
+RNGFND1_TYPE     10      # 10 = MAVLink Rangefinder
+RNGFND1_MIN_CM   2       # ArduPilot <= 4.4: Ngưỡng sàn đo tối thiểu 2 cm (0.02m)
+RNGFND1_MAX_CM   250     # ArduPilot <= 4.4: Ngưỡng trần đo tối đa 250 cm (2.5m chuẩn MTF-02)
+# Đối với ArduPilot 4.5+ (đơn vị mét): nếu FC không nhận *_CM thì nạp RNGFND1_MIN 0.02 và RNGFND1_MAX 2.50
+RNGFND1_ORIENT   25      # Hướng cảm biến chúc thẳng xuống mặt đất (Downward)
+RNGFND1_GNDCLEAR 5       # Khoảng cách từ cảm biến tới mặt đất khi đỗ (cm)
+
+# --- 4. OPTICAL FLOW (MicoAir MTF-02 qua MAVLink UART) ---
+FLOW_TYPE        5       # 5 = MAVLink Optical Flow
+FLOW_FXSCALER    0       # Hệ số hiệu chỉnh phần nghìn (0 = chuẩn)
+FLOW_FYSCALER    0       # Hệ số hiệu chỉnh phần nghìn (0 = chuẩn)
+
+# --- 5. BỘ LỌC EKF3 VÀ CẤU HÌNH ĐỊNH VỊ INDOOR (KHÔNG GPS) ---
+AHRS_EKF_TYPE    3       # Sử dụng bộ lọc EKF3
+EK3_ENABLE       1
+EK3_SRC1_POSXY   0       # 0 = None (Không dùng GPS trong nhà)
+EK3_SRC1_VELXY   5       # 5 = Optical Flow (vận tốc ngang MTF-02)
+EK3_SRC1_POSZ    2       # 2 = Rangefinder (độ cao ToF MTF-02, chống trôi Baro)
+EK3_SRC1_VELZ    0       # 0 = None
+EK3_SRC1_YAW     1       # 1 = Compass (Cần calibrate tại bãi bay thực tế hoặc dùng GSF)
+EK3_SRC_OPTIONS  1       # 1 = Fuse all velocities (bắt buộc cho Optical Flow)
+EK3_RNG_USE_HGT  70      # Ưu tiên ToF trong 70% tầm đo danh định của cảm biến
+
+# --- 6. RÀO CẢN AN TOÀN PRE-ARM THỰC TẾ & RC KILL-SWITCH ---
+ARMING_CHECK     1       # Khóa an toàn Pre-Arm: Bắt buộc toàn bộ cảm biến sẵn sàng
+# Ghi chú: Nếu bay không tay điều khiển RC (chỉ bay tự động qua GCS Wi-Fi), ARMING_CHECK=1 sẽ chặn ARM vì thiếu RC.
+# Khi đó dùng bitmask ARMING_CHECK trừ kiểm tra RC (ARMING_CHECK = 65535 & ~(1<<6) = 65471)
+# Khi có gắn RC receiver: Gán một kênh switch 2 vị trí làm RCx_OPTION = 31 (Motor Emergency Stop / Kill-switch)
+DISARM_DELAY     10      # Tự động ngắt động cơ sau 10 giây nếu ở mặt đất mà không cất cánh
+
+# --- 7. FAILSAFE MẤT SÓNG ĐIỀU KHIỂN GCS (WI-FI / MAVLINK LOSS) ---
+# Trong Copter: 0=Disabled, 1=RTL (nguy hiểm trong nhà!), 5=Always Land
+FS_GCS_ENABLE    5       # 5 = ALWAYS LAND (Mất sóng > 3s -> Hạ cánh khẩn cấp tại chỗ)
+FS_GCS_TIMEOUT   3.0     # Thời gian timeout phát hiện mất sóng (3.0 giây)
+
+# --- 8. FAILSAFE CẢM BIẾN QUANG HỌC & EKF (LỖI SÀN NHÀ / MẤT TRACKING) ---
+FS_EKF_ACTION    1       # 1 = LAND (Khi EKF mất tracking, tự động hạ cánh)
+FS_EKF_THRESH    0.8     # Ngưỡng kích hoạt phương sai EKF
+
+# --- 9. HÀNG RÀO ĐỊA LÝ PHÒNG KÍN (INDOOR GEO-FENCE) ---
+FENCE_ENABLE     1       # Bật rào chắn địa lý bảo vệ phòng kín
+FENCE_TYPE       3       # 1 = Alt, 2 = Circle -> 3 = Cả hai
+FENCE_ALT_MAX    2.0     # Trần bay an toàn tuyệt đối 2.0m (dưới ngưỡng ToF 2.5m và trần phòng)
+FENCE_RADIUS     6.0     # Bán kính bay tối đa 6.0m (Lưu ý: Nếu firmware kẹp min 30m, code Python có soft geofence 5.5m)
+FENCE_ACTION     2       # 2 = ALWAYS LAND (Hạ cánh ngay tại chỗ khi chạm rào, KHÔNG RTL)
+FENCE_MARGIN     0.3     # Vùng đệm cảnh báo trước khi chạm rào (0.3m)
+
+# --- 10. STREAM RATE MAVLINK (SERIAL1 & SERIAL2) ---
+SR1_POSITION     10      # Stream toạ độ 10Hz cho telemetry/ROS
+SR1_EXTRA1       10      # Stream thái độ 10Hz
+SR1_RAW_SENS     5       # Stream cảm biến 5Hz
+SR2_POSITION     10      # Stream toạ độ cho Python GCS
+SR2_EXTRA1       10      # Stream thái độ cho Python
+
+# --- 11. ĐỘNG LỰC HỌC ĐỘNG CƠ XING2 1404 & KHUNG SUB-250G ---
+MOT_THST_HOVER   0.28    # Mức ga lơ lửng danh định 28%
+MOT_HOVER_LEARN  2       # Tự động học mức ga lơ lửng
+MOT_SPIN_ARM     0.07    # Tốc độ quay tối thiểu khi ARM
+MOT_SPIN_MIN     0.10    # Tốc độ quay tối thiểu khi bay
+
+# --- 12. BẢO VỆ NGUỒN PIN 3S 1400MAH & HIỆU CHUẨN ADC PHẦN CỨNG ---
+BATT_MONITOR     4       # 4 = Analog Voltage and Current
+BATT_VOLT_PIN    4       # Chân ADC đo điện áp (ESP32-S3 GPIO4 / ADC1_CH3)
+BATT_CURR_PIN    5       # Chân ADC đo dòng điện (ESP32-S3 GPIO5 / ADC1_CH4)
+BATT_VOLT_MULT   11.0    # Tỉ số phân áp điện áp (Cần đo bằng đồng hồ vạn năng: V_do / V_bao_cao)
+BATT_AMP_PERVLT  17.0    # Độ nhạy cảm biến dòng (Amps/Volt)
+BATT_CAPACITY    1400    # Dung lượng danh định 1400mAh
+BATT_LOW_VOLT    10.5    # Cảnh báo pin yếu Tầng 1 (3.5V/cell) -> LAND
+BATT_LOW_MAH     0
+BATT_CRT_VOLT    9.9     # Nguy kịch Tầng 2 (3.3V/cell) -> LAND khẩn cấp
+BATT_CRT_MAH     0
+BATT_FS_LOW_ACT  1       # 1 = LAND
+BATT_FS_CRT_ACT  1       # 1 = LAND
+BATT_LOW_TIMER   3       # Lọc trễ 3 giây chống sụt áp tức thời
+BATT_ARM_VOLT    11.1    # Khóa Pre-Arm: Cấm cất cánh nếu pin < 11.1V
+
+# --- 13. PID TUNING & BỘ LỌC CHO MICRO DRONE 240G ---
+ATC_RAT_RLL_P    0.045
+ATC_RAT_RLL_I    0.045
+ATC_RAT_RLL_D    0.0010
+ATC_RAT_PIT_P    0.045
+ATC_RAT_PIT_I    0.045
+ATC_RAT_PIT_D    0.0010
+ATC_RAT_YAW_P    0.35
+ATC_RAT_YAW_I    0.035
+ATC_RAT_YAW_D    0.005
+ATC_ANG_RLL_P    10.0
+ATC_ANG_PIT_P    10.0
+ATC_ANG_YAW_P    8.0
+INS_GYRO_FILTER  80.0    # Bộ lọc gyro chuẩn 80Hz cho micro drone AUW 240g
+ATC_RAT_RLL_FLTD 40.0
+ATC_RAT_PIT_FLTD 40.0
+PSC_ACCZ_P       0.25
+PSC_ACCZ_I       0.50

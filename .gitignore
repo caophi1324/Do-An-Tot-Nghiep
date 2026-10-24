@@ -1,0 +1,45 @@
+# ===== Repo git lồng nhau (đã đổi tên .git -> .git.bak để gộp nội dung vào repo này) =====
+.git.bak/
+
+# ===== Môi trường ảo Python & cache =====
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# ===== Nội dung khối lượng lớn / tải lại được từ nguồn bên ngoài =====
+# Wiki ArduPilot (clone ~2.2 GB): https://github.com/ArduPilot/ardupilot_wiki
+drone_swarm_simulation_win11_wsl/ardupilot_wiki/
+# Thư viện chuẩn KiCad (cài đặt toàn cục qua KiCad)
+Drone/Lib Kicad/kicad-footprints/
+Drone/Lib Kicad/kicad-symbols-master/
+# Thư viện Altium cá nhân (file >100 MB vượt giới hạn GitHub, lưu local trong "LIb AL")
+Drone/LIb AL/
+
+# ===== Lịch sử cục bộ & backup thủ công =====
+.history/
+_restore_backup_*/
+History/
+__Previews/
+*.bak_*
+*_backup_*.kicad_pcb
+
+# ===== Nén & lưu trữ (đã có bản giải nén hoặc là bản snapshot) =====
+*.zip
+*.rar
+*.7z
+
+# ===== Dữ liệu runtime (database, ảnh snapshots, chỉ mục FAISS - sinh khi chạy) =====
+StackMod/data/
+
+# ===== Bí mật =====
+.env
+.env.*
+!.env.example
+
+# ===== Hệ điều hành =====
+Thumbs.db
+desktop.ini
+.DS_Store

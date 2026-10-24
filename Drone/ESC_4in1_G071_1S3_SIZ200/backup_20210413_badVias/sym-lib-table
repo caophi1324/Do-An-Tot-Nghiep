@@ -1,0 +1,6 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "lib_ultimateFC") (type "Legacy") (uri "${KIPRJMOD}/lib/lib_ultimateFC.lib") (options "") (descr ""))
+	(lib (name "STM32G071") (type "Legacy") (uri "${KIPRJMOD}/lib/STM32G071.lib") (options "") (descr ""))
+	(lib (name "ESC_4in1_G071_1S3_SIZ200-cache") (type "Legacy") (uri "D:/Drone/ESC_4in1_G071_1S3_SIZ200/backup_20210413_badVias/ESC_4in1_G071_1S3_SIZ200-cache.lib") (options "") (descr "Legacy project cache library"))
+)
